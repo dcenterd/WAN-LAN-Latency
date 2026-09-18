@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.latency" path="/org/gnome/shell/extensions/latency/">
+
+    <key name="show-latency-label" type="b">
+      <default>true</default>
+      <summary>Show section labels</summary>
+      <description>Whether to show the "INTER:" and "INTRA:" text before the ping values</description>
+    </key>
+
+    <key name="latency-ip-wan" type="s">
+      <default>"8.8.8.8"</default>
+      <summary>IP WAN Address</summary>
+      <description>The IP WAN address for the ping</description>
+    </key>
+
+    <key name="latency-ip-intranet" type="s">
+      <default>"192.168.1.1"</default>
+      <summary>Intranet IP Address</summary>
+      <description>The intranet IP address for the ping</description>
+    </key>
+
+    <key name="latency-resolve-domain" type="s">
+      <default>"google.com"</default>
+      <summary>Resolve Domain</summary>
+      <description>The domain to resolve to detect DNS failures</description>
+    </key>
+
+    <key name="latency-position" type="s">
+      <choices>
+        <choice value="left"/>
+        <choice value="right"/>
+      </choices>
+      <default>'left'</default>
+      <summary>Panel position</summary>
+      <description>Position of the indicator in the panel: 'left' or 'right'</description>
+    </key>
+
+    <key name="latency-internet-threshold-warning" type="i">
+      <default>100</default>
+      <range min="1" max="10000"/>
+      <summary>Internet warning threshold in milliseconds</summary>
+      <description>Internet latency above this value (ms) will be shown in the warning color</description>
+    </key>
+
+    <key name="latency-internet-threshold-critical" type="i">
+      <default>300</default>
+      <range min="1" max="10000"/>
+      <summary>Internet critical threshold in milliseconds</summary>
+      <description>Internet latency above this value (ms) will be shown in the critical color</description>
+    </key>
+
+    <key name="latency-internet-color-ok" type="s">
+      <default>'#00ff00'</default>
+      <summary>Internet color for normal latency</summary>
+      <description>Hex color shown when the Internet latency is below the warning threshold</description>
+    </key>
+
+    <key name="latency-internet-color-warning" type="s">
+      <default>'#f5c211'</default>
+      <summary>Internet color for warning latency</summary>
+      <description>Hex color shown when the Internet latency is between warning and critical thresholds</description>
+    </key>
+
+    <key name="latency-internet-color-critical" type="s">
+      <default>'#e01b24'</default>
+      <summary>Internet color for critical latency</summary>
+      <description>Hex color shown when the Internet latency is above the critical threshold</description>
+    </key>
+
+    <key name="latency-intranet-threshold-warning" type="i">
+      <default>150</default>
+      <range min="1" max="10000"/>
+      <summary>Intranet warning threshold in milliseconds</summary>
+      <description>Intranet latency above this value (ms) will be shown in the warning color</description>
+    </key>
+
+    <key name="latency-intranet-threshold-critical" type="i">
+      <default>400</default>
+      <range min="1" max="10000"/>
+      <summary>Intranet critical threshold in milliseconds</summary>
+      <description>Intranet latency above this value (ms) will be shown in the critical color</description>
+    </key>
+
+    <key name="latency-intranet-color-ok" type="s">
+      <default>'#00d7ff'</default>
+      <summary>Intranet color for normal latency</summary>
+      <description>Hex color shown when the Intranet latency is below the warning threshold</description>
+    </key>
+
+    <key name="latency-intranet-color-warning" type="s">
+      <default>'#ff9f1c'</default>
+      <summary>Intranet color for warning latency</summary>
+      <description>Hex color shown when the Intranet latency is between warning and critical thresholds</description>
+    </key>
+
+    <key name="latency-intranet-color-critical" type="s">
+      <default>'#ff5f5f'</default>
+      <summary>Intranet color for critical latency</summary>
+      <description>Hex color shown when the Intranet latency is above the critical threshold</description>
+    </key>
+
+    <key name="latency-threshold-warning" type="i">
+      <default>100</default>
+      <range min="1" max="10000"/>
+      <summary>Legacy warning threshold in milliseconds</summary>
+      <description>Deprecated legacy setting retained for compatibility.</description>
+    </key>
+
+    <key name="latency-threshold-critical" type="i">
+      <default>300</default>
+      <range min="1" max="10000"/>
+      <summary>Legacy critical threshold in milliseconds</summary>
+      <description>Deprecated legacy setting retained for compatibility.</description>
+    </key>
+
+    <key name="latency-color-ok" type="s">
+      <default>'#ffffff'</default>
+      <summary>Legacy color for normal latency</summary>
+      <description>Deprecated legacy setting retained for compatibility.</description>
+    </key>
+
+    <key name="latency-color-warning" type="s">
+      <default>'#f5c211'</default>
+      <summary>Legacy color for warning latency</summary>
+      <description>Deprecated legacy setting retained for compatibility.</description>
+    </key>
+
+    <key name="latency-color-critical" type="s">
+      <default>'#e01b24'</default>
+      <summary>Legacy color for critical latency</summary>
+      <description>Deprecated legacy setting retained for compatibility.</description>
+    </key>
+
+    <key name="latency-refresh-interval" type="i">
+      <default>5</default>
+      <range min="1" max="3600"/>
+      <summary>Refresh interval in seconds</summary>
+      <description>How often to run the ping check (in seconds)</description>
+    </key>
+
+  </schema>
+</schemalist>
