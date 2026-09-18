@@ -15,6 +15,20 @@ A GNOME Shell extension that displays Internet and intranet latency (ping) in th
 - Quick access to preferences by clicking the indicator
 - Customizable Internet IP, intranet IP, and DNS resolve domain
 
+## Changes from the original source
+
+This project is a customized fork of the original GNOME Shell `latency` extension. The main changes made in this version are:
+
+- Added separate configuration for Internet and intranet targets instead of relying on a single fixed setup.
+- Added support for custom Internet IP, intranet IP, and DNS resolve domain through the extension settings.
+- Improved status handling to detect both "no internet connection" and "DNS problem" states.
+- Added independent warning and critical thresholds for each network check.
+- Added separate color config for normal, warning, and critical states for both Internet and intranet results.
+- Added panel placement control so the indicator can be shown on the left or right side of the top bar.
+- Added optional section labels (`INTER:` and `INTRA:`) to control the display format.
+- Added a Preferences menu entry directly from the indicator.
+- Updated the extension for newer GNOME Shell versions and modern extension APIs.
+
 ## GNOME Shell version support
 
 | GNOME version | Supported |
