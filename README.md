@@ -65,8 +65,8 @@ sudo pacman -S glib2 make iputils bind
 ## Building and installing
 
 ```bash
-git clone https://github.com/mboscovich/latency.git
-cd latency
+git clone https://github.com/zgasparian/latency-mboscovich.github.io.git
+cd latency-mboscovich.github.io
 make install
 ```
 
