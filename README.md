@@ -1,4 +1,4 @@
-# Latency - GNOME Shell Extension
+# WAN/LAN Latency - GNOME Shell Extension
 
 A GNOME Shell extension that displays Internet and intranet latency (ping) in the top panel. It also detects when the internet connection is lost or when there is a DNS problem.
 
@@ -17,7 +17,7 @@ A GNOME Shell extension that displays Internet and intranet latency (ping) in th
 
 ## Changes from the original source
 
-This project is a customized fork of the original GNOME Shell `latency` extension. The main changes made in this version are:
+This project is a customized fork of the original GNOME Shell `latency` extension by mboscovich (https://github.com/mboscovich/latency-mboscovich.github.io), which measured only Internet latency. The main changes made in this version are:
 
 - Added separate configuration for Internet and intranet targets instead of relying on a single fixed setup.
 - Added support for custom Internet IP, intranet IP, and DNS resolve domain through the extension settings.
@@ -65,8 +65,8 @@ sudo pacman -S glib2 make iputils bind
 ## Building and installing
 
 ```bash
-git clone https://github.com/zgasparian/latency-mboscovich.github.io.git
-cd latency-mboscovich.github.io
+git clone https://github.com/dcenterd/wan-lan-latency.git
+cd wan-lan-latency
 make install
 ```
 
@@ -75,11 +75,11 @@ This copies the extension into `~/.local/share/gnome-shell/extensions/`.
 To install without `make`, copy the project files to the GNOME extensions directory and compile the schema:
 
 ```bash
-mkdir -p ~/.local/share/gnome-shell/extensions/latency@mboscovich.github.io
-cp extension.js metadata.json prefs.js show-ping-time.sh ~/.local/share/gnome-shell/extensions/latency@mboscovich.github.io/
-cp -r schemas ~/.local/share/gnome-shell/extensions/latency@mboscovich.github.io/
-glib-compile-schemas ~/.local/share/gnome-shell/extensions/latency@mboscovich.github.io/schemas
-chmod +x ~/.local/share/gnome-shell/extensions/latency@mboscovich.github.io/show-ping-time.sh
+mkdir -p ~/.local/share/gnome-shell/extensions/wan-lan-latency@dcenterd.github.io
+cp extension.js metadata.json prefs.js show-ping-time.sh ~/.local/share/gnome-shell/extensions/wan-lan-latency@dcenterd.github.io/
+cp -r schemas ~/.local/share/gnome-shell/extensions/wan-lan-latency@dcenterd.github.io/
+glib-compile-schemas ~/.local/share/gnome-shell/extensions/wan-lan-latency@dcenterd.github.io/schemas
+chmod +x ~/.local/share/gnome-shell/extensions/wan-lan-latency@dcenterd.github.io/show-ping-time.sh
 ```
 
 After installing:
@@ -90,7 +90,7 @@ After installing:
 
 2. **Enable the extension:**
 ```bash
-gnome-extensions enable latency@mboscovich.github.io
+gnome-extensions enable wan-lan-latency@dcenterd.github.io
 ```
 
 ## Configuration
@@ -99,7 +99,7 @@ Click the indicator in the panel to open a menu, then select **Preferences**.
 
 Alternatively:
 - Open the GNOME Extensions app and click the settings icon for Latency
-- Or run: `gnome-extensions prefs latency@mboscovich.github.io`
+- Or run: `gnome-extensions prefs wan-lan-latency@dcenterd.github.io`
 
 ### Display
 
@@ -174,6 +174,28 @@ chmod +x show-ping-time.sh
 1. Restart GNOME Shell (see above)
 2. Check it is enabled: `gnome-extensions list --enabled`
 3. Check for errors: `journalctl -f -o cat /usr/bin/gnome-shell`
+
+## Credits
+
+- Original `latency` extension: **mboscovich** (original author, all original credit retained).
+- Intranet (LAN) monitoring, separate thresholds/colors, labels and panel position options: **dcenterd** (https://github.com/dcenterd).
+
+## How it works
+
+1. `extension.js` creates a panel indicator and, every refresh interval, launches `show-ping-time.sh` twice (asynchronously): once for the Internet IP and once for the intranet IP (the intranet call adds `--skip-dns`).
+2. `show-ping-time.sh` sends one ICMP ping (5 s timeout) and prints `<time>ms`, `[ No internet connection ]` if the ping fails, or `[ DNS Problem ]` if the ping works but resolving the domain with `host` fails. For the intranet check a failed ping is also printed as `[ No internet connection ]`, meaning that host is unreachable.
+3. The numeric result is compared against that section's warning/critical thresholds and colored with that section's colors. Non-numeric results use the default panel color.
+4. `prefs.js` is the preferences window; values are stored in GSettings (`schemas/`) and changes apply live.
+
+## Files
+
+| File | Purpose |
+|---|---|
+| `extension.js` | Panel indicator, timer, ping scheduling, coloring |
+| `prefs.js` | Preferences UI (Adwaita) |
+| `show-ping-time.sh` | Runs ping and optional DNS check for one target |
+| `schemas/*.gschema.xml` | Settings definitions and defaults |
+| `metadata.json` | Extension metadata (UUID, supported GNOME versions) |
 
 ## License
 

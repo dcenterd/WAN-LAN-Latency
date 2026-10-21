@@ -1,7 +1,7 @@
 {
-  "description": "Show internet latency (ping). Also show if the internet connection is lost and if there is a DNS problem. It use google.com to do the check (IP: 8.8.8.8).",
-  "name": "latency",
-  "settings-schema": "org.gnome.shell.extensions.latency",
+  "description": "Show Internet (WAN) and Intranet (LAN) latency in ms in the top panel. Each target has its own IP, warning/critical thresholds and colors. Also reports lost connection and DNS problems (Internet check). Defaults: Internet 8.8.8.8, Intranet 192.168.1.1, DNS check on google.com.",
+  "name": "WAN/LAN Latency",
+  "settings-schema": "org.gnome.shell.extensions.wan-lan-latency",
   "shell-version": [
     "45",
     "46",
@@ -10,7 +10,7 @@
     "49",
     "50"
   ],
-  "url": "https://github.com/zgasparian/latency-mboscovich.github.io",
-  "uuid": "latency@mboscovich.github.io",
+  "url": "https://github.com/dcenterd/wan-lan-latency",
+  "uuid": "wan-lan-latency@dcenterd.github.io",
   "version": 18
 }

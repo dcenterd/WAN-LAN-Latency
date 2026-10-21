@@ -1,4 +1,4 @@
-UUID := latency@mboscovich.github.io
+UUID := wan-lan-latency@dcenterd.github.io
 PREFIX := $(HOME)/.local/share/gnome-shell/extensions
 INSTALL_DIR := $(PREFIX)/$(UUID)
 

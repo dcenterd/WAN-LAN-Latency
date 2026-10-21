@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-  <schema id="org.gnome.shell.extensions.latency" path="/org/gnome/shell/extensions/latency/">
+  <schema id="org.gnome.shell.extensions.wan-lan-latency" path="/org/gnome/shell/extensions/wan-lan-latency/">
 
     <key name="show-latency-label" type="b">
       <default>true</default>
