@@ -2,6 +2,12 @@
 
 A GNOME Shell extension that displays Internet and intranet latency (ping) in the top panel. It also detects when the internet connection is lost or when there is a DNS problem.
 
+## Screenshot
+
+The top panel showing Internet and intranet latency, each colored by its own thresholds (here Internet is in the warning color, intranet is normal):
+
+![Panel indicator](docs/panel.png)
+
 ## Features
 
 - Real-time Internet and intranet latency display in the top panel
