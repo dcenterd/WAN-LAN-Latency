@@ -183,8 +183,8 @@ chmod +x show-ping-time.sh
 
 ## Credits
 
-- Original `latency` extension: **mboscovich** (original author, all original credit retained).
-- Intranet (LAN) monitoring, separate thresholds/colors, labels and panel position options: **dcenterd** (https://github.com/dcenterd).
+- **Original author:** mboscovich, creator of the original `latency` extension (https://github.com/mboscovich/latency-mboscovich.github.io). All original credit is retained.
+- **Modifications:** Zareh Kasparian ([@dcenterd](https://github.com/dcenterd)), written with Claude Code support (Anthropic). Added intranet (LAN) monitoring, separate thresholds and colors, section labels, panel position option and updated GNOME Shell support.
 
 ## How it works
 
